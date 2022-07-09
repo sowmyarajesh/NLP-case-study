@@ -7,7 +7,7 @@ import textutils as TU
 
 ''' ===== START TEST PARAM ==============='''
 sentence = "myocardial infarction and profound vagal reaction"
-
+model_path = 'best_model.pkl'
 '''============= END TEST PARAM=============='''
 
 def getWordTokens(text):
@@ -38,7 +38,7 @@ with open('labels.txt','r') as f:
 word_tokens = getWordTokens(sentence)
 test_input = TU.Word2Vector([word_tokens], all_words)
 
-clf_model = pickle.load(open('best_model.pkl', 'rb'))
+clf_model = pickle.load(open(model_path, 'rb'))
 pred = clf_model.predict(test_input)
 
 # print the possible factors associated with the condition
